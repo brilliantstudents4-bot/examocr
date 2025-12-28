@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ExamOCR — Image to Exact Text</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>ExamOCR — Image to Exact Text</h1>
+
+    <section class="controls">
+      <label class="file-label">
+        Select image
+        <input id="fileInput" type="file" accept="image/*" />
+      </label>
+
+      <div class="row">
+        <label>Language:
+          <select id="langSelect">
+            <option value="eng">English</option>
+            <option value="ara">Arabic (العربية)</option>
+          </select>
+        </label>
+        <button id="processBtn">Process Image</button>
+        <button id="downloadBtn" disabled>Download .txt</button>
+      </div>
+
+      <div id="progress" class="progress" aria-hidden="true">
+        <div class="bar" style="width:0%"></div>
+        <div class="label"></div>
+      </div>
+    </section>
+
+    <section class="preview">
+      <div class="image-wrap">
+        <img id="preview" alt="Selected image preview" />
+      </div>
+      <div class="output-wrap">
+        <div class="output-header">
+          <strong>Extracted text</strong>
+          <div class="actions">
+            <button id="copyBtn" disabled>Copy</button>
+            <label><input type="checkbox" id="preserveDir" /> Preserve RTL layout</label>
+          </div>
+        </div>
+        <pre id="output" class="output" spellcheck="false"></pre>
+      </div>
+    </section>
+
+    <footer>
+      Free, client-side OCR (Tesseract.js). For best accuracy use clear, high-resolution scans.
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.1.1/dist/tesseract.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
